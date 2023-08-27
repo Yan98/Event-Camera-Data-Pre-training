@@ -132,7 +132,7 @@ if __name__ == "__main__":
     parser.add_argument("--acce", default = "ddp", type = str)
     parser.add_argument("--num_nodes", default = 1, type = int)
     parser.add_argument("--checkpoint", default = None, type = str)
-    parser.add_argument('--opt', type=str, default = "config/ours/ablation/ours_moco_scheduler.yml", help='Path to option YAML file.')
+    parser.add_argument('--opt', default = None, type=str)
     
     args = parser.parse_args()
     main(args)

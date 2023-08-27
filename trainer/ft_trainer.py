@@ -252,9 +252,6 @@ class TrainerModelFinetuing(pl.LightningModule):
             )
         
         if self.checkpoint != None:
-            checkpoint = torch.load(self.checkpoint,map_location="cpu")
-            self.model.load_state_dict(checkpoint["model"])
-            optimizer.load_state_dict(checkpoint["optimizer"])
-            del checkpoint
+            pass
         
         return optimizer         

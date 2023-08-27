@@ -1,7 +1,7 @@
 # one can also set mask_ratio = 0.5 for speeding up the training process.
 name: Ours
 precision: 16
-exp_path: experiments/Ours/Linear/vits33
+exp_path: experiments/Ours/Linear/vits
 base: ./config/path/imagenet_path.yml 
 datasets:
     num_workers: 7
