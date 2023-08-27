@@ -1,0 +1,34 @@
+datasets:
+    reshape: true
+    reshape_method: no_sample
+    loader_type: reshape_then_acc_count_pol 
+    slice:
+        slice_events: true
+        slice_length: 30000
+        slice_method: random
+        slice_augment: false
+        slice_augment_width: 0
+        slice_start: 0
+        slice_end: 30000
+        
+    height: 224
+    width: 224
+    augment: true
+    augment_type: base_augment
+    persistent_workers: true
+    pin_memory: true
+    
+    train:
+        type: ImageNetDataset
+        root: ./ImageNet/N_Imagenet/ #Please change it accordingly
+        file: ./txt/train_file.txt 
+        label_map: ./N_Imagenet/extracted_train #Please change it accordingly, the path contain folders of diffirent classes
+        
+    eval:
+        type: ImageNetDataset
+        root: ./ImageNet/N_Imagenet/ #Please change it accordingly
+        file: ./txt/val_file.txt
+        label_map: ./ImageNet/N_Imagenet/extracted_train #Please change it accordingly, the path contain folders of diffirent classes       
+        
+network:
+    num_classes: 1000

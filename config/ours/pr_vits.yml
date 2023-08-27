@@ -1,0 +1,14 @@
+name: Ours
+precision: 16
+exp_path: experiments/Ours/Pretraining/vits
+base: ./config/ours/base/ours_pretraining_base.yml
+network:
+    project: true
+    mask_ratio: 0.5
+    
+train:    
+    moco_m: 0.99
+    base_lr: !!float 1.5e-4
+    warmup_epoch: 40   
+    epoch: 300
+    cycle_epoch: 300

@@ -1,0 +1,39 @@
+# one can also set mask_ratio = 0.5 for speeding up the training process.
+name: Ours
+precision: 16
+exp_path: experiments/Ours/Linear/vits33
+base: ./config/path/imagenet_path.yml 
+datasets:
+    num_workers: 7
+    batch_size: 64 
+    point_level_aug: false
+    remove_hot_pixels: false  
+    view_augmentation:
+        name: FineTune
+        view1:
+            crop_min: 0.9 
+        
+network:
+    type: OursModelFineTune
+    pretrain_checkpoint: ./pr.pt #Please change it accordingly   
+    in_chans: 2
+    mask_ratio: 0 #0.5
+    drop_path_rate: 0
+    linear_probing: true
+    add_layernorm: false   
+train:    
+    type: TrainerModelFinetuing 
+    optimizer: AdamW
+    epoch: 20
+    save_every: 10
+    base_lr: !!float 2e-4
+    weight_decay: 0
+    layer_decay: 1
+    warmup_epoch: 1
+    target_batch_size: 1024
+    max_grad_norm: 5
+    b1: 0.9
+    b2: 0.999
+    use_ema: false  
+
+    

@@ -1,0 +1,36 @@
+name: Ours
+precision: 16
+exp_path: experiments/Ours/main/Finetuning
+base: ./config/path/imagenet_path.yml
+datasets:
+    num_workers: 7
+    batch_size: 64 
+    point_level_aug: false
+    remove_hot_pixels: true 
+    rand_aug: true
+    view_augmentation:
+        name: FineTune
+        view1:
+            crop_min: 0.85
+        
+                
+network:
+    type: OursModelFineTune
+    in_chans: 2
+    mask_ratio: 0
+    drop_path_rate: 0.1
+       
+train:    
+    type: TrainerModelFinetuing 
+    optimizer: AdamW
+    epoch: 100
+    save_every: 20
+    base_lr: !!float 1e-4
+    weight_decay: 0.3 
+    layer_decay: 0.75
+    warmup_epoch: 20
+    target_batch_size: 2048
+    max_grad_norm: 5
+    b1: 0.9
+    b2: 0.999
+    use_ema: true

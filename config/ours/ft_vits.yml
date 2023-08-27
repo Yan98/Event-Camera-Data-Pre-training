@@ -1,0 +1,15 @@
+# one can also set add_layernorm = true for resuing the heads obtained during pre-training
+name: Ours
+precision: 16
+exp_path: experiments/Ours/Finetuning/vits
+base: ./config/ours/base/ours_finetuning_base.yml   
+
+datasets:
+    remove_hot_pixels: false
+
+network:
+    pretrain_checkpoint: ./pr.pt #Please change it accordingly
+    add_layernorm: false
+#    lr_checkpoint: experiments/Ours/Linear/vits/checkpoints/best.pt #Please change it accordingly
+    
+    

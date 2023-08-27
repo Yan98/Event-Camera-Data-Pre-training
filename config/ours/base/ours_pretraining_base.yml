@@ -1,0 +1,38 @@
+name: Ours
+precision: 16
+exp_path: experiments/Ours/main/Pretraining
+base: ./config/path/imagenet_path_with_emb.yml
+datasets:
+    num_workers: 7
+    batch_size: 64 #128 
+    point_level_aug: false
+    view_augmentation:
+        name: Ours
+        view1:
+            crop_min: 0.45
+        view2:
+            crop_min: 0.45
+    train:
+        type: PretrainImageNetDataset
+        
+    eval:
+        type: PretrainImageNetDataset        
+network:
+    type: OursModel
+    pretrain_checkpoint: ./checkpoints/mocov3_vits_300ep.pth.tar 
+    channels: 2
+    mask_ratio: 0.7
+    temp_event: 0.2
+    temp_image: 0.1
+       
+train:    
+    type: TrainerModelPretraining   
+    epoch: 300  
+    moco_m: 0.99
+    save_every: 10
+    base_lr: !!float 1.5e-4
+    weight_decay: 0.03  #0.1
+    warmup_epoch: 20
+    cycle_epoch: 80
+
+    

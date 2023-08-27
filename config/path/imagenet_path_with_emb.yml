@@ -1,0 +1,10 @@
+base: ./config/path/imagenet_path.yml
+datasets:
+    train:
+        type: PretrainImageNetDataset
+        emb_path: ./ImageNet/emb #Please change it accordingly
+        
+    eval:
+        type: PretrainImageNetDataset
+        emb_path: ./ImageNet/emb_val #Please change it accordingly   
+            
