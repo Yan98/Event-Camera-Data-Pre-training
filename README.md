@@ -1,4 +1,4 @@
-## Event Camera Data Pre-training<br><sub>Official PyTorch Implementation of the ICCV 2023 Paper</sub><br><sub>[Paper](doc/paper.pdf) | [Supp](doc/supp.pdf) </sub><br>
+## Event Camera Data Pre-training<br><sub>Official PyTorch Implementation of the ICCV 2023 Paper</sub><br><sub>[Paper](doc/paper.pdf) | [Supp](doc/supp.pdf) | [Video](https://www.youtube.com/watch?v=zKuKT8VxgsE) </sub><br>
 
 <p align="left">
     <img src="doc/teaser.jpg"/>
